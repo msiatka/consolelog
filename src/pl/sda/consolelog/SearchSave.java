@@ -41,46 +41,46 @@ public class SearchSave {
 
             Pattern.compile("^(.*)SMTP Server: Authentication failed for user (.*) ; connecting host (.*)", Pattern.CASE_INSENSITIVE);
 
-    public static void Regeex(List<String> input, String wzor){
+    public static void Regeex(List<String> input, String wzor) {
 
         int i = 0;
 
         Pattern pattern = RRRR_MM_DD_HH_MM_SS;
 
-       // Pattern compiledPattern = Pattern.compile("Jan.*");
-    //email notransfer, yestransfered, ipaddress
-        switch (wzor){
+        // Pattern compiledPattern = Pattern.compile("Jan.*");
+        //email notransfer, yestransfered, ipaddress
+        switch (wzor) {
             case "email": {
-              pattern = VALID_EMAIL_ADDRESS_REGEX;
-              break;
+                pattern = VALID_EMAIL_ADDRESS_REGEX;
+                break;
             }
             case "nottransered": {
-                 pattern = NO_MESSAGES_TRANSFERRED_TO;
-                 break;
+                pattern = NO_MESSAGES_TRANSFERRED_TO;
+                break;
             }
 
             case "yestransfered": {
-                 pattern = ROUTER_MESSAGES_TRANSFERRED;
-                 break;
+                pattern = ROUTER_MESSAGES_TRANSFERRED;
+                break;
             }
             case "ipadres": {
-                 pattern = VALID_IPADDRESS_REGEX;
-                 break;
+                pattern = VALID_IPADDRESS_REGEX;
+                break;
             }
 
             case "authenticationfailed": {
                 pattern = AUTHENTICATION_FAILED_FOR_USER;
                 break;
-                         }
+            }
             default:
-                 pattern = RRRR_MM_DD_HH_MM_SS;
+                pattern = RRRR_MM_DD_HH_MM_SS;
         }
 
         System.out.println(" A Pattern mamy: " + pattern.toString());
 
 
         //tu powinnismy juz przekazac nazwe - po regexie i serwerze i dacie
-        String nazwapliku = "server_" + wzor+"_";
+        String nazwapliku = "server_" + wzor + "_";
         //String nazwapliku = "server_regex";
 
         boolean dopisac = true;
@@ -88,8 +88,8 @@ public class SearchSave {
         BufferedWriter writer = null;
 
         String emp;
-        String startTimeLog="";
-        String endTimeLog="";
+        String startTimeLog = "";
+        String endTimeLog = "";
         boolean startTimeLogB = false;
         boolean endTimeLogB = false;
         String listString = "";
@@ -112,7 +112,6 @@ public class SearchSave {
             writer = new BufferedWriter(new FileWriter(logFile, dopisac));
 
 
-
             i = input.size();
             System.out.println(" rozmiar pliku, linii: " + i);
 
@@ -127,12 +126,12 @@ public class SearchSave {
 //            }
 
 
-            for (int j = (input.size()-1); j >= 0; j--) {
+            for (int j = (input.size() - 1); j >= 0; j--) {
 
-                matchdatetime = RRRR_MM_DD_HH_MM_SS .matcher(input.get(j));
+                matchdatetime = RRRR_MM_DD_HH_MM_SS.matcher(input.get(j));
 
                 if (!endTimeLogB) {
-                    if(matchdatetime.find()){
+                    if (matchdatetime.find()) {
                         endTimeLogB = true;
                         System.out.println("Ostatni wiersz z data w odpowiednim formacie: " + j);
                         System.out.println(RRRR_MM_DD_HH_MM_SS + " pasuje do: \"" +
@@ -145,25 +144,25 @@ public class SearchSave {
             }
 
 
-            i=0;
+            i = 0;
 
             int k = 0;
             for (String x : input) {
-                matchdatetime = RRRR_MM_DD_HH_MM_SS .matcher(x.toString());
+                matchdatetime = RRRR_MM_DD_HH_MM_SS.matcher(x.toString());
 
-                   if (!startTimeLogB) {
-                       if(matchdatetime.find()){
-                           startTimeLogB = true;
-                           System.out.println("Pierwszy wiersz z datą w odpowiednim formacie: " + k);
-                           System.out.println(RRRR_MM_DD_HH_MM_SS + " pasuje do: \"" +
-                               matchdatetime.group(0) +
-                               "\" w wierszu: \"" + x + "\"");
-                         startTimeLog = matchdatetime.group(0);
-                         }
+                if (!startTimeLogB) {
+                    if (matchdatetime.find()) {
+                        startTimeLogB = true;
+                        System.out.println("Pierwszy wiersz z datą w odpowiednim formacie: " + k);
+                        System.out.println(RRRR_MM_DD_HH_MM_SS + " pasuje do: \"" +
+                                matchdatetime.group(0) +
+                                "\" w wierszu: \"" + x + "\"");
+                        startTimeLog = matchdatetime.group(0);
                     }
+                }
 
                 matcher = pattern.matcher(x.toString());
-                if (matcher.find()){
+                if (matcher.find()) {
                     writer.write(x);
                     writer.newLine();
                     i++;
@@ -193,7 +192,7 @@ public class SearchSave {
         }
     }
 
-    public static void Filter(List<String> input,String pattern) {
+    public static void Filter(List<String> input, String pattern) {
 
         int i = 0;
 

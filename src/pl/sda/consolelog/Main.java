@@ -1,9 +1,5 @@
 package pl.sda.consolelog;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,17 +36,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-     //parser2.readFile();
-     //   FileWritingPerfTest.main();
-      //SearchSave.Regeex(Parser.readFile(),NO_MESSAGES_TRANSFERRED_TO);
+        //parser2.readFile();
+        //   FileWritingPerfTest.main();
+        //SearchSave.Regeex(Parser.readFile(),NO_MESSAGES_TRANSFERRED_TO);
 
 
-      //  SearchSave.Filter(Parser.readFile()," transferred to");
-      //  SearchSave.Regeex(Parser.readFile(),ROUTER_MESSAGES_TRANSFERRED);
+        //  SearchSave.Filter(Parser.readFile()," transferred to");
+        //  SearchSave.Regeex(Parser.readFile(),ROUTER_MESSAGES_TRANSFERRED);
 
         //email notransfer, yestransfered, ipaddress
 
-        SearchSave.Regeex(Parser.readFile(),"authenticationfailed");
+        SearchSave.Regeex(Parser.readFile(), "authenticationfailed");
 
     }
 }

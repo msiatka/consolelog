@@ -19,9 +19,9 @@ public class PersonValidation {
         this.w = w;
     }
 
-    public void adresyIP(){
-        int i=0;
-        int j=0;
+    public void adresyIP() {
+        int i = 0;
+        int j = 0;
         for (Person person : w) {
             if (validateIP(person.getIpaddress())) {
                 //  System.out.println(person.toString());
@@ -35,34 +35,33 @@ public class PersonValidation {
             }
         }
 
-        System.out.println("poprawnych ip: " +i );
-        System.out.println("niepoprawnych ip: " +j );
+        System.out.println("poprawnych ip: " + i);
+        System.out.println("niepoprawnych ip: " + j);
 
     }
 
-    public void email(){
+    public void email() {
 
-                  int i=0;
-            int j=0;
-            for (Person person : w) {
-                if (validate(person.getEmail())) {
-                    //  System.out.println(person.toString());
-                    //  System.out.println(" Adres poprawny");
-                    i++;
-                } else {
+        int i = 0;
+        int j = 0;
+        for (Person person : w) {
+            if (validate(person.getEmail())) {
+                //  System.out.println(person.toString());
+                //  System.out.println(" Adres poprawny");
+                i++;
+            } else {
 
-                    System.out.println("Niepoprawny adres mailowy: " + person.getEmail());
-                    //person.toString();
-                    j++;
-                }
+                System.out.println("Niepoprawny adres mailowy: " + person.getEmail());
+                //person.toString();
+                j++;
             }
-
-            System.out.println("poprawnych mailowych: " +i );
-            System.out.println("niepoprawnych mailowych: " +j );
-            System.out.println(" ----------------------- ");
-
         }
 
+        System.out.println("poprawnych mailowych: " + i);
+        System.out.println("niepoprawnych mailowych: " + j);
+        System.out.println(" ----------------------- ");
+
+    }
 
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
@@ -75,7 +74,7 @@ public class PersonValidation {
 
     public static boolean validate(String emailStr) {
 
-        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
 
         return matcher.find();
 
@@ -83,7 +82,7 @@ public class PersonValidation {
 
     public static boolean validateIP(String emailStr) {
 
-        Matcher matcher = VALID_IPADDRESS_REGEX .matcher(emailStr);
+        Matcher matcher = VALID_IPADDRESS_REGEX.matcher(emailStr);
 
         return matcher.find();
 

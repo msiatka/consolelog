@@ -1,4 +1,5 @@
 package pl.sda.consolelog;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -64,7 +65,7 @@ public class FileWritingPerfTest {
 
     private static void write(List<String> records, Writer writer) throws IOException {
         long start = System.currentTimeMillis();
-        for (String record: records) {
+        for (String record : records) {
             writer.write(record);
         }
         writer.flush();

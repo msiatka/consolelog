@@ -14,10 +14,10 @@ public class Parser {
 
     //tu jako parametr podamy sciezke do zasoby z logami ..
     //public static Path file = Paths.get("console_lnmail2.log");
-   // public static Path file = Paths.get("consoleLNmail.log");
+    //public static Path file = Paths.get("consoleLNmail.log");
     public static Path file = Paths.get("console.006");
 
-    public  static List<String> readFile() {
+    public static List<String> readFile() {
         List<String> lines = new ArrayList<>();
         try {
             lines = Files.readAllLines(file, StandardCharsets.ISO_8859_1);
